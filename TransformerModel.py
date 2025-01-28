@@ -7,10 +7,10 @@ with open("Shakespeare_text.txt") as file:
 
 
 
-learning_rate = 1e-3
+learning_rate = 3e-4
 text_size = len(text)
-batch_size = 4
-context_size = 8 
+batch_size = 64
+context_size = 256
 dim = 2
 chars = sorted(list(set(text)))
 vocab_size = len(chars)
@@ -18,9 +18,9 @@ training_text  = text[:text_size]
 training_size = len(training_text)
 val_text = text[training_size:]
 val_size = len(val_text)
-embd_size = 32
-head_size = 4
-n_layer = 4 
+embd_size =384
+head_size = 64
+n_layer = 6 
 dropout  = 0.3
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 torch.manual_seed(1337)
@@ -183,15 +183,6 @@ print("Training loss")
 print(loss.item())
 
 
-#Validation 
-for iteration in range (10000):
-    X, labels = get_validation_batch() #We get a random batch 
-    logits, loss = m.forward(X,targets=labels) #We calculate the logits obtained from this batch 
-    optimizer.zero_grad(set_to_none=True) #Not sure what this does
-    loss.backward() #Computes the gradients of the loss
-    optimizer.step() # Updates the weights of the model
-print("Validation loss")
-print(loss.item())
 
 
 #Text generation
