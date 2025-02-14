@@ -7,6 +7,6 @@ Each token, representing a character, has an embedding size of 384. We dropout %
 
 
 If you want you can go through the steps and compare both models using the .ipynb file (you can use jupyter notebook for this)
-otherwise if you just want to train the Transformer model and generate text you can use 'python TransformerModel.py'
+otherwise if you just want to train the Transformer model and generate text you can use 'python TransformerModel.py'.
 
 If you don't want to train the model but instead want to generate text using the pre-trained model you need to set "dont_train=True".
